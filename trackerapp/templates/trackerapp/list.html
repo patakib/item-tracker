@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Item Tracker App</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>ITEM TRACKER APP - main list</h2>
+    <div style="width:170%">
+    <form method="POST" action="/">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" name="Create Task">
+    </form>
+    </div>
+    <br>
+    <table style="width:200%">
+      <tr>
+        <th>ID</th>
+        <th>System</th>
+        <th>Process</th>
+        <th>Business Segment</th>
+        <th>Starting Date</th>
+        <th>Days to Complete</th>
+        <th>Deadline</th>
+        <th>Ageing</th>
+        <th>Ticket Number</th>
+        <th>Email Subject</th>
+        <th>Status</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Supplier</th>
+        <th>Supplier Number</th>
+        <th>Supplier Email</th>
+        <th>Action Started</th>
+        <th>Output Number</th>
+        <th>Completion Date</th>
+        <th>Pass or Fail</th>
+      </tr>
+      {% for task in tasks %}
+      <tr>
+        <td>{{task.id}}</td>
+        <td>{{task.get_system_display}}</td>
+        <td>{{task.get_process_display}}</td>
+        <td>{{task.get_business_segment_display}}</td>
+        <td>{{task.starting_date}}</td>
+        <td>{{task.days_to_complete}}</td>
+        <td>{{task.deadline}}</td>
+        <td>{{task.get_ageing_display}}</td>
+        <td>{{task.ticket_number}}</td>
+        <td>{{task.email_subject}}</td>
+        <td>{{task.get_status_display}}</td>
+        <td>{{task.get_name_display}}</td>
+        <td>{{task.contact}}</td>
+        <td>{{task.supplier}}</td>
+        <td>{{task.supplier_number}}</td>
+        <td>{{task.supplier_email}}</td>
+        <td>{{task.action_started}}</td>
+        <td>{{task.output_number}}</td>
+        <td>{{task.completion_date}}</td>
+        <td>{{task.get_pass_or_fail_display}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
