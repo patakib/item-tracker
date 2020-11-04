@@ -11,14 +11,6 @@
   </head>
   <body>
     <h2>ITEM TRACKER APP - main list</h2>
-    <div style="width:200%">
-    <form method="POST" action="/">
-      {% csrf_token %}
-      {{ form.as_table }}
-      <br>
-      <input type="submit" name="Create Task">
-    </form>
-    </div>
     <br>
     <table style="width:200%">
       <tr>
@@ -45,7 +37,7 @@
       </tr>
       {% for task in tasks %}
       <tr>
-        <td>{{task.id}}</td>
+        <td><a href="{% url 'edit_item' task.id %}">{{task.id}}</a></td>
         <td>{{task.get_system_display}}</td>
         <td>{{task.get_process_display}}</td>
         <td>{{task.get_business_segment_display}}</td>
@@ -65,8 +57,19 @@
         <td>{{task.output_number}}</td>
         <td>{{task.completion_date}}</td>
         <td>{{task.get_pass_or_fail_display}}</td>
+        <td><a href="{% url 'delete' task.id %}">Delete</a></td>
       </tr>
       {% endfor %}
     </table>
+    <br>
+    <br>
+    <div style="width:200%">
+    <form method="POST" action="/">
+      {% csrf_token %}
+      {{ form.as_table }}
+      <br>
+      <input type="submit" name="Create Task">
+    </form>
+    </div>
   </body>
 </html>

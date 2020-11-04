@@ -18,3 +18,27 @@ def index(request):
 
     context = {'tasks': tasks, 'form': form}
     return render(request, 'trackerapp/list.html', context)
+
+
+def editItem(request, pk):
+    task = Task.objects.get(id=pk)
+    form = TaskForm(instance=task)
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    context = {'form':form}
+    return render(request, 'trackerapp/edit_item.html', context)
+
+def deleteItem(request, pk):
+    item = Task.objects.get(id=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('/')
+
+    context = {'item':item}
+    return render(request, 'trackerapp/delete.html', context)
