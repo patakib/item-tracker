@@ -5,4 +5,5 @@ urlpatterns = [
     path('',views.index, name="list"),
     path('edit_item/<str:pk>/', views.editItem, name="edit_item"),
     path('delete/<str:pk>/', views.deleteItem, name="delete"),
+    path('new_item/', views.newItem, name="new_item"),
 ]

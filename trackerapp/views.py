@@ -6,17 +6,8 @@ from .forms import *
 
 # Create your views here.
 def index(request):
-    tasks = Task.objects.all()
-
-    form = TaskForm()
-
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('/')
-
-    context = {'tasks': tasks, 'form': form}
+    tasks = Task.objects.all().order_by('deadline')
+    context = {'tasks': tasks}
     return render(request, 'trackerapp/list.html', context)
 
 
@@ -33,6 +24,7 @@ def editItem(request, pk):
     context = {'form':form}
     return render(request, 'trackerapp/edit_item.html', context)
 
+
 def deleteItem(request, pk):
     item = Task.objects.get(id=pk)
 
@@ -42,3 +34,16 @@ def deleteItem(request, pk):
 
     context = {'item':item}
     return render(request, 'trackerapp/delete.html', context)
+
+
+def newItem(request):
+    form = TaskForm()
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+        return redirect('/')
+
+    context = {'form':form}
+    return render(request, 'trackerapp/new_item.html', context)

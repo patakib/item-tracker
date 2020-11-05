@@ -12,6 +12,8 @@
   <body>
     <h2>ITEM TRACKER APP - main list</h2>
     <br>
+    <a href="{% url 'new_item' %}">New Item</a>
+    <br>
     <table style="width:200%">
       <tr>
         <th>ID</th>
@@ -36,7 +38,7 @@
         <th>Pass or Fail</th>
       </tr>
       {% for task in tasks %}
-      <tr>
+      <tr style="{% if task.get_status_display == "completed" %}background-color:#7cff75{% elif task.get_status_display == "pending" %}background-color:#fffd6e{% endif %}">
         <td><a href="{% url 'edit_item' task.id %}">{{task.id}}</a></td>
         <td>{{task.get_system_display}}</td>
         <td>{{task.get_process_display}}</td>
@@ -62,14 +64,5 @@
       {% endfor %}
     </table>
     <br>
-    <br>
-    <div style="width:200%">
-    <form method="POST" action="/">
-      {% csrf_token %}
-      {{ form.as_table }}
-      <br>
-      <input type="submit" name="Create Task">
-    </form>
-    </div>
   </body>
 </html>

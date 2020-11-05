@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Item Tracker App</title>
+  </head>
+  <body>
+    <h2>ITEM TRACKER APP - Add New Item</h2>
+    <br>
+    <div style="width:100%">
+    <form method="POST" action="/">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br>
+      <input type="submit" name="Create Task">
+    </form>
+    </div>
+  </body>
+</html>
