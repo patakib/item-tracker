@@ -38,6 +38,7 @@ def deleteItem(request, pk):
 
 def newItem(request):
     form = TaskForm()
+    task = form.instance
 
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
