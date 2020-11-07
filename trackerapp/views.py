@@ -1,18 +1,20 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
+
+
 from .models import *
 from .forms import *
 
 # Create your views here.
+
 def index(request):
     tasks = Task.objects.all().order_by('deadline')
     context = {'tasks': tasks}
     return render(request, 'trackerapp/list.html', context)
 
-
 def editItem(request, pk):
-    task = Task.objects.get(id=pk)
+    task = Task.objects.select_for_update().get(id=pk)
     form = TaskForm(instance=task)
 
     if request.method == 'POST':

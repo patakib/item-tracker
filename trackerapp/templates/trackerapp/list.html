@@ -1,22 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <script type="text/javascript">
+    window.setTimeout(function () {
+    location.href = "http://127.0.0.1:8000/";
+}, 5000); // refresh/redirect after 5 seconds.
+    </script>
     <meta charset="utf-8">
     <title>Item Tracker App</title>
-    <style>
-      table, th, td {
-        border: 1px solid black;
-      }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>
-    <h2>ITEM TRACKER APP - main list</h2>
+    <div>
+      <h2>ITEM TRACKER APP - main list</h2>
+    </div>
     <br>
     <a href="{% url 'new_item' %}">New Item</a>
     <br>
     <div>
-    <font size="2" face="Courier New" >
-    <table style="width:200%">
+    <table class="mainlist" id="_appendHere">
+      <thead>
       <tr>
         <th>ID</th>
         <th>System</th>
@@ -38,7 +42,10 @@
         <th>Output Number</th>
         <th>Completion Date</th>
         <th>Pass or Fail</th>
+        <th></th>
       </tr>
+    </thead>
+    <tbody>
       {% for task in tasks %}
       <tr style="{% if task.get_status_display == "completed" %}background-color:#7cff75{% elif task.get_status_display == "pending" %}background-color:#fffd6e{% endif %}">
         <td><a href="{% url 'edit_item' task.id %}">{{task.id}}</a></td>
@@ -64,6 +71,7 @@
         <td><a href="{% url 'delete' task.id %}">Delete</a></td>
       </tr>
       {% endfor %}
+    </tbody>
     </table>
     </div>
     <br>

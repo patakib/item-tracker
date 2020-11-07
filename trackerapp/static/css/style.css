@@ -1,0 +1,29 @@
+table{
+    table-layout: fixed;
+}
+
+thead th,tbody td{
+  width: 100px;
+  height: 35px;
+  float:left;
+  word-wrap:break-word;
+}
+
+thead, tbody {
+  display: block;
+  width: 200%;
+}
+
+tbody {
+    height: 400px;
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: auto;
+}
+
+.mainlist {
+  font-family: "Calibri";
+}
+
+th, tr, td {
+  border: 1px solid black;
+}
