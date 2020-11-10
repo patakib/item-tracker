@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.db import transaction
 
 
 
@@ -13,6 +14,7 @@ def index(request):
     context = {'tasks': tasks}
     return render(request, 'trackerapp/list.html', context)
 
+@transaction.atomic()
 def editItem(request, pk):
     task = Task.objects.select_for_update().get(id=pk)
     form = TaskForm(instance=task)
