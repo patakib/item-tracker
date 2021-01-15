@@ -2,33 +2,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    {% load static %}
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script type="text/javascript">
     window.setTimeout(function () {
-    location.href = "http://127.0.0.1:8000/";}, 60000);
+    location.href = "http://127.0.0.1:8000/";
+}, 60000);
     </script>
-    <script src="{% static 'js/list.js' %}"></script>
     <meta charset="utf-8">
     <title>Item Tracker App</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
     <div>
-      <h2 id="title">Order Management System</h2>
+      <h2>ITEM TRACKER APP - main list</h2>
     </div>
     <br>
-    <div id="addNew"><a href="{% url 'new_item' %}"><i class="far fa-plus-square"></i></a></div>
+    <a href="{% url 'new_item' %}">New Item</a>
     <br>
-    <input type="text" id="supplierSearch" onkeyup="filterSupplier()" placeholder="Search for suppliers..">
     <div id="tableDiv">
-    <table class="mainlist" id="myTable">
+    <table class="mainlist" id="_appendHere">
       <thead>
       <tr>
         <th>ID</th>
@@ -58,7 +49,7 @@
       {% for task in tasks %}
       <tr>
       <!-- <tr style="{% if task.get_status_display == "completed" %}background-color:#7cff75{% elif task.get_status_display == "pending" %}background-color:#fffd6e{% endif %}"> -->
-        <td id="edit"><a href="{% url 'edit_item' task.id %}">{{task.id}}</a></td>
+        <td><a href="{% url 'edit_item' task.id %}">{{task.id}}</a></td>
         <!-- <td>{{task.get_system_display}}</td> -->
         <td>{{task.get_process_display}}</td>
         <!-- <td>{{task.get_business_segment_display}}</td> -->
@@ -78,7 +69,7 @@
         <td>{{task.output_number}}</td> -->
         <td>{{task.completion_date}}</td>
         <!-- <td>{{task.get_pass_or_fail_display}}</td> -->
-        <td id="delete"><a href="{% url 'delete' task.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' task.id %}">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>

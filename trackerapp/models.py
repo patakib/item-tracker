@@ -33,7 +33,7 @@ class Task(models.Model):
     # complete = models.BooleanField(default=False)
     completion_date = models.DateTimeField(null=True, blank=True, default=datetime(1900,1,1,0,0))
     # pass_or_fail = models.CharField(max_length=50, choices=passfailchoices, default='0', null=True, blank=True)
-    editing = models.BooleanField(default=False)
+    # editing = models.BooleanField(default=False)
 
 
 #    def __str__(self):

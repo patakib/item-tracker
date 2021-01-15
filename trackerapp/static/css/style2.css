@@ -1,0 +1,40 @@
+body {
+  background-color: #f4f1de;
+}
+.mainlist {
+  margin-left: auto;
+  margin-right: auto;
+}
+table{
+    table-layout: fixed;
+}
+
+tr:nth-child(even) {
+  background-color: #f4f1ee;
+}
+
+thead th,tbody td{
+  width: 100px;
+  height: 35px;
+  float:left;
+  word-wrap:break-word;
+}
+
+thead, tbody {
+  display: block;
+  width: 200%;
+}
+
+tbody {
+    height: 400px;
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: auto;
+}
+
+.mainlist {
+  font-family: "Calibri";
+}
+
+th, tr, td {
+  border: 1px solid black;
+}
