@@ -10,10 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <script type="text/javascript">
-    window.setTimeout(function () {
-    location.href = "http://127.0.0.1:8000/";}, 60000);
-    </script>
     <script src="{% static 'js/list.js' %}"></script>
     <meta charset="utf-8">
     <title>Item Tracker App</title>
@@ -26,30 +22,52 @@
     <br>
     <div id="addNew"><a href="{% url 'new_item' %}"><i class="far fa-plus-square"></i></a></div>
     <br>
-    <input type="text" id="supplierSearch" onkeyup="filterSupplier()" placeholder="Search for suppliers..">
     <div id="tableDiv">
     <table class="mainlist" id="myTable">
       <thead>
       <tr>
         <th>ID</th>
         <!-- <th>System</th> -->
-        <th>Process</th>
+        <th>Process<div class="sortingIcon"><i class="fas fa-sort" onclick="sortTable(1)"></i></div></th>
         <!-- <th>Business Segment</th> -->
         <th>Starting Date</th>
         <th>Days to Complete</th>
         <th>Deadline</th>
-        <th>Ageing</th>
+        <th >Ageing<div class="sortingIcon"><i class="fas fa-sort" onclick="sortTable(5)"></i></div></th>
         <!-- <th>Ticket Number</th> -->
         <!-- <th>Email Subject</th> -->
-        <th>Status</th>
-        <th>Name</th>
+        <th>Status<div class="sortingIcon"><i class="fas fa-sort" onclick="sortTable(6)"></i></div></th>
+        <th>Name<div class="sortingIcon"><i class="fas fa-sort" onclick="sortTable(7)"></i></div></th>
         <!-- <th>Contact</th> -->
-        <th>Supplier</th>
+        <th>Supplier<div class="sortingIcon"><i class="fas fa-sort" onclick="sortTable(8)"></i></div></th>
         <!-- <th>Supplier Number</th>
         <th>Supplier Email</th>
         <th>Action Started</th>
         <th>Output Number</th> -->
         <th>Completion Date</th>
+        <!-- <th>Pass or Fail</th> -->
+        <!-- <th></th> -->
+      </tr>
+      <tr>
+        <th><input type="text" id="idSearch" onkeyup="filterId()" placeholder="Search for ID number.."></th>
+        <!-- <th>System</th> -->
+        <th><input type="text" id="processSearch" onkeyup="filterProcess()" placeholder="Search for process.."></th>
+        <!-- <th>Business Segment</th> -->
+        <th><input type="date"></th>
+        <th><input type="text" id="daySearch" onkeyup="filterDay()" placeholder="Days to process.."></th>
+        <th><input type="date"></th>
+        <th><input type="text" id="ageingSearch" onkeyup="filterAgeing()" placeholder="Search for ageing category.."></th>
+        <!-- <th>Ticket Number</th> -->
+        <!-- <th>Email Subject</th> -->
+        <th><input type="text" id="statusSearch" onkeyup="filterStatus()" placeholder="Search for status.."></th>
+        <th><input type="text" id="nameSearch" onkeyup="filterName()" placeholder="Search for names.."></th>
+        <!-- <th>Contact</th> -->
+        <th><input type="text" id="supplierSearch" onkeyup="filterSupplier()" placeholder="Search for suppliers.."></th>
+        <!-- <th>Supplier Number</th>
+        <th>Supplier Email</th>
+        <th>Action Started</th>
+        <th>Output Number</th> -->
+        <th><input type="date"></th>
         <!-- <th>Pass or Fail</th> -->
         <!-- <th></th> -->
       </tr>

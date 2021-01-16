@@ -9,6 +9,7 @@ body {
   color: #f1faee;
   padding-bottom: 0;
   margin-bottom: 0;
+  text-shadow: 3px 3px #05090b;
 }
 #addNew {
   font-size: 5vh;
@@ -19,6 +20,12 @@ body {
 }
 .far:hover {
   color: #05090b;
+}
+.sortingIcon {
+  color: #05090b;
+}
+.sortingIcon:hover {
+  color: #457b9d;
 }
 #tableDiv {
   overflow-x:auto;
