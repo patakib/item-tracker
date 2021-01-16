@@ -1,0 +1,30 @@
+body {
+  background-color: #457b9d;
+  font-family: 'Lato', sans-serif;
+}
+#title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  text-align: center;
+  font-size: 6vh;
+  color: #f1faee;
+  padding-bottom: 5vh;
+  margin-bottom: 0;
+  text-shadow: 3px 3px #05090b;
+}
+tr {
+  color: #e9ecef;
+}
+td {
+  padding: 1vh 0 1vh 0;
+  font-size: 20px;
+}
+
+#submit {
+  padding: 1vh 1vh 1vh 1vh;
+  margin-top: 4vh;
+  background-color: #f1faee;
+}
+#submit:hover {
+  background-color: #2a7221;
+  color: #f1faee;
+}

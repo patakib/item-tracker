@@ -96,7 +96,7 @@
         <td>{{task.output_number}}</td> -->
         <td>{{task.completion_date}}</td>
         <!-- <td>{{task.get_pass_or_fail_display}}</td> -->
-        <td id="delete"><a href="{% url 'delete' task.id %}">Delete</a></td>
+        <td id="delete"><div id="trash"><a href="{% url 'delete' task.id %}"><i class="fas fa-trash-alt"></i></a></div></td>
       </tr>
       {% endfor %}
     </tbody>

@@ -76,11 +76,15 @@ tr:nth-child(odd) {
 #edit:hover {
   background-color: #05090b;
 }
-#delete:hover {
-  background-color: #e63946;
+#trash {
+  font-size: 18px;
+  width: 2.5vw;
 }
 #delete > a {
-  color: black;
+  color: #05090b;
+}
+#delete:hover {
+  background-color: #e63946;
 }
 a {
   text-decoration: none;
